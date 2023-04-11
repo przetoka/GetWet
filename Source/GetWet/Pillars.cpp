@@ -85,7 +85,7 @@ void APillars::Tick(float DeltaTime)
 	{
 		int height = FMath::RandRange(MinHeight, MaxHeight);
 		if (Pillars[i]) {
-			if (Pillars[i]->GetRelativeLocation().Y < -1 * (PillarGap * (NumOfPillars - 5)))
+			if (Pillars[i]->GetRelativeLocation().Y < -1 * (PillarGap * (NumOfPillars - 3)))
 			{
 				Pillars[i]->SetRelativeLocation(FVector(0, PillarGap * 3, height * 50));
 			}
@@ -96,7 +96,7 @@ void APillars::Tick(float DeltaTime)
 		}
 
 		if (PillarsTop[i]) {
-			if (PillarsTop[i]->GetRelativeLocation().Y < -1 * (PillarGap * (NumOfPillars - 5)))
+			if (PillarsTop[i]->GetRelativeLocation().Y < -1 * (PillarGap * (NumOfPillars - 3)))
 			{
 				PillarsTop[i]->SetRelativeLocation(FVector(0, PillarGap * 3, height * 50 + VerticalPillarGap));
 			}

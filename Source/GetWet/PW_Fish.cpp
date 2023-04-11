@@ -53,16 +53,17 @@ void APW_Fish::Tick(float DeltaTime)
 // Called to bind functionality to input
 void APW_Fish::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
+
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-	//PlayerInputComponent->BindAction("Jump", IE_Released, this, &APW_Fish::Jump);
+	PlayerInputComponent->BindAction("Jump", IE_Released, this, &APW_Fish::Jump);
 }
 
 void APW_Fish::Jump()
 {
-	/*UE_LOG(LogTemp, Warning, TEXT("Jumping!"));
+	UE_LOG(LogTemp, Warning, TEXT("Jumping!"));
 
-	Mesh->BodyInstance.SetLinearVelocity(FVector::UpVector*JumpForce, false);*/
+	Mesh->BodyInstance.SetLinearVelocity(FVector::UpVector*JumpForce, false);
 }
 
 void APW_Fish::OnPillarHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit)
