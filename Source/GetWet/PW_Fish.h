@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
 #include "Camera/CameraComponent.h"
+#include "Blueprint/UserWidget.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "PW_Fish.generated.h"
 
@@ -29,6 +30,9 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 		USceneComponent* Root;
 
+	UPROPERTY(EditDefaultsOnly)
+		TSubclassOf<class UUserWidget> WidgetClass;
+
 public:
 	// Sets default values for this pawn's properties
 	APW_Fish();
@@ -45,5 +49,5 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	void Jump();
 	UFUNCTION()
-		void OnCollisionWithPillar(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
+		void OnPillarHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
 };

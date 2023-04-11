@@ -5,7 +5,7 @@
 
 void APillars::SpawnPillars()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Spawning Pillars"));
+	UE_LOG(LogTemp, Warning, TEXT("Spawning Pillars and dropplets"));
 
 	for (size_t i = 0; i < Pillars.Num(); i++)
 	{
@@ -27,7 +27,7 @@ void APillars::SpawnPillars()
 	{
 		UStaticMeshComponent* smc = (UStaticMeshComponent*)AddComponentByClass(UStaticMeshComponent::StaticClass(), false, FTransform(), true);
 		UStaticMeshComponent* smcTop = (UStaticMeshComponent*)AddComponentByClass(UStaticMeshComponent::StaticClass(), false, FTransform(), true);
-		
+
 		int height = FMath::RandRange(MinHeight, MaxHeight);
 
 		if (smc)
@@ -36,7 +36,7 @@ void APillars::SpawnPillars()
 			smc->SetMobility(EComponentMobility::Movable);
 			smc->AttachToComponent(Root, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
 			smc->SetRelativeLocation(smc->GetRelativeLocation() + FVector(0, PillarGap * i, height * 50));
-			smc->SetWorldScale3D(FVector(PillarWidth, PillarWidth, 5));
+			smc->SetWorldScale3D(FVector(PillarX, PillarY, 5));
 			smc->SetStaticMesh(PillarMesh);
 			Pillars.Add(smc);
 		}
@@ -47,10 +47,10 @@ void APillars::SpawnPillars()
 			smcTop->SetMobility(EComponentMobility::Movable);
 			smcTop->AttachToComponent(Root, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
 			smcTop->SetRelativeLocation(smcTop->GetRelativeLocation() + FVector(0, PillarGap * i, height * 50 + VerticalPillarGap));
-			smcTop->SetWorldScale3D(FVector(PillarWidth, PillarWidth, 5));
+			smcTop->SetWorldScale3D(FVector(PillarX, PillarY, 5));
 			smcTop->SetStaticMesh(PillarMesh);
 			PillarsTop.Add(smcTop);
-		}
+		} 
 	}
 }
 

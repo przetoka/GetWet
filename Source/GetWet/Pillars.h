@@ -28,7 +28,10 @@ private:
 		int MinHeight = 2;
 
 	UPROPERTY(EditAnywhere)
-		double PillarWidth = 1;
+		double PillarX = 1;
+
+	UPROPERTY(EditAnywhere)
+		double PillarY = 1;
 
 	UPROPERTY(EditAnywhere)
 		float PillarGap = 100.f;
